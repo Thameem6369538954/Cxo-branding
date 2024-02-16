@@ -90,5 +90,6 @@
   .caro-box-8 img,
   .caro-box-9 img {
     width: 250px;
+    height: 50%;
   }
 }

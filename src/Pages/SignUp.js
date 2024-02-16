@@ -69,7 +69,7 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container-for-signup">
         <div className="from-text">
           <h1>Signup</h1>
           <form onSubmit={formik.handleSubmit}>
