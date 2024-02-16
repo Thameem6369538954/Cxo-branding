@@ -5,12 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-
+import Modal from "react-modal";
 import { Provider } from "react-redux";
 import { store, persistore } from "./redux/store.js";
 // ..
 AOS.init();
-
+Modal.setAppElement("#root");
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

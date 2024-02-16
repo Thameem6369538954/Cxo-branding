@@ -3,7 +3,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import "../css/resumepopupform.css";
-import axios from "axios";
+import Axios from "axios";
+import axios from "../Axios/axios";
 import { InlineWidget } from "react-calendly";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails, setTokens } from "../redux/userReducer";
@@ -25,7 +26,7 @@ const ResumePopupForm = ({ closePopup }) => {
 
   const navigate = useNavigate()
 
-  const userId = useSelector((state) => state.userData.userData._id);
+  const userId = useSelector((state) => state?.userData?.userData?._id);
   console.log(token,"toooooo")
 
   const formik = useFormik({
@@ -39,7 +40,7 @@ const ResumePopupForm = ({ closePopup }) => {
       name: Yup.string().required("Required"),
       socialMediaLink: Yup.string().url("Invalid URL").required("Required"),
     }),
-    // onSubmit: async (values, { setSubmitting, setFieldError }) => {
+    
     //   try {
     //     const fileUrl = await uploadFile(file);
 
@@ -84,15 +85,12 @@ const ResumePopupForm = ({ closePopup }) => {
     onSubmit: async (values, { setSubmitting, setFieldError }) => {
       try {
         const headers = {};
-        // if (token) {
-        //   headers.Authorization = `Bearer ${token}`;
-        //   console.log("headers.Authorization", headers.Authorization);
-        // }
+        
         const formData = new FormData();
         formData.append("file", values.resumeFile);
         formData.append("upload_preset", "resume_writing");
 
-        const cloudinaryResponse = await axios.post(
+        const cloudinaryResponse = await Axios.post(
           `https://api.cloudinary.com/v1_1/${cl.config().cloud_name}/upload`,
           formData,
           {
@@ -106,17 +104,14 @@ const ResumePopupForm = ({ closePopup }) => {
         console.log(fileUrl, "fileUlrr");
 
         const response = await axios.post(
-          "http://localhost:4000/api/uploadpdf",
+          "/uploadpdf",
           {
             fileUrl,
             userId,
             socialMediaLink: values.socialMediaLink,
             wantComplimentaryCall: values.wantComplimentaryCall,
 
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
+            
           }
         );
         toast.success("Form submitted successfully!");
@@ -127,22 +122,7 @@ const ResumePopupForm = ({ closePopup }) => {
       catch(error) {
         console.error("Error during file upload:", error.message);
       }
-    // const pdfUpload = new FormData();
-    // pdfUpload.append("file", values.resumeFile);
-    // pdfUpload.append("userId", userId);
-    // pdfUpload.append("socialMediaLink", values.socialMediaLink);
-
-
-  //     console.log(pdfUpload,'rrrrrrrrrrrrrrrrrrrrr');
-  //  const response = await axios.post(
-  //    "http://localhost:4000/api/uploadpdf",
-  //    pdfUpload,
-  //    {
-  //      headers: {
-  //        "Content-Type": "multipart/form-data",
-  //      },
-  //    }
-  //  );
+    
 
     }
   });

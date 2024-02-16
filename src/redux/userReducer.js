@@ -22,9 +22,7 @@ const singleUser = createSlice({
     },
     logoutUser: (state) => {
       localStorage.removeItem("userAccessToken");
-      state.userData = {
-        username: "",
-      };
+      state.userData = {};
       state.token = "";
     },
   },

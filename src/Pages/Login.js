@@ -3,7 +3,7 @@ import '../css/Login.css'
 import {Link} from 'react-router-dom'
 import Loginpic from '../Images/Loginpic.jpg'
 import { GoogleLogin } from "react-google-login";
-import axios from "axios";
+import axios from "../Axios/axios.js";
 import { useNavigate } from "react-router-dom"; 
 import { useFormik } from "formik";
 
@@ -33,12 +33,17 @@ const Login = () => {
      onSubmit: async (values, { setSubmitting, setFieldError }) => {
        try {
          const response = await axios.post(
-           "http://localhost:4000/api/login",
+           "/login",
            values
          );
 
          if (response.data.success) {
            // Update Redux store with user details and token
+                       localStorage.setItem(
+                         "userAccessToken",
+                         response?.data?.token
+                       );
+
            dispatch(setUserDetails(response.data.userData));
            console.log(response.data.userData,"userdata");
            dispatch(setTokens(response.data.token));

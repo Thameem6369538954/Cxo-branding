@@ -9,6 +9,9 @@
 .headline h1{
     font-size: 70px;
 }
+.button{
+    cursor: pointer;
+}
 .job-btn{
     background-color: var(--black);
     padding: 10px;
@@ -43,6 +46,7 @@
     height: 50%;
     border-radius: 20px;
     height: 400px;
+    cursor: pointer;
 }
 .image-container p{
     color: white;

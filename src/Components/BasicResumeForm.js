@@ -1,15 +1,14 @@
-// VideoResumeModal.js
-import React, { useState } from "react";
+// BasicResumeForm.js
+
+import React from "react";
 import Modal from "react-modal";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "../Axios/axios";
-import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import { InlineWidget } from "react-calendly";
+
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -25,30 +24,28 @@ const customStyles = {
   },
 };
 
-const VideoResumeModal = ({ isOpen, onRequestClose, handleSubmit }) => {
+const BasicResumeForm = ({ isOpen, onRequestClose, handleSubmit }) => {
   const navigate = useNavigate();
-  const [wantComplimentaryCall, setWantComplimentaryCall] = useState(false);
-  const [closeClick, setCloseClick] = useState(false);
-  const userId = useSelector((state) => state?.userData?.userData?._id);
-
   const formik = useFormik({
     initialValues: {
       fullname: "",
       currentLocation: "",
-      wantComplimentaryCall: false,
+      email: "",
+      phone: "",
+      paymentDetails: "",
     },
     validationSchema: Yup.object({
       fullname: Yup.string().required("Required"),
       currentLocation: Yup.string().required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      phone: Yup.string().required("Required"),
+      paymentDetails: Yup.string().required("Required"),
     }),
 
     onSubmit: async (values) => {
       try {
-        const response = await axios.post("/post-videoresume", {
-          userId,
-          currentLocation: values.currentLocation,
-          wantComplimentaryCall: values.wantComplimentaryCall,
-        });
+        // Your form submission logic here, including billing details
+        // ...
 
         toast.success("Form submitted successfully!");
         setTimeout(() => {
@@ -62,18 +59,6 @@ const VideoResumeModal = ({ isOpen, onRequestClose, handleSubmit }) => {
     },
   });
 
-  const handleCheckboxChange = (e) => {
-    setWantComplimentaryCall(e.target.checked);
-    if (e.target.checked) {
-      formik.setFieldValue("wantComplimentaryCall", true);
-    }
-  };
-
-  const handleClose = () => {
-    setWantComplimentaryCall(false);
-    setCloseClick(true);
-  };
-
   return (
     <Modal
       isOpen={isOpen}
@@ -84,7 +69,7 @@ const VideoResumeModal = ({ isOpen, onRequestClose, handleSubmit }) => {
       <ToastContainer />
       <div className="resume-form">
         <div className="form-int-icon">
-          <h1>Get Video Resume</h1>
+          <h1>Subscribe to Basic Plan</h1>
           <AiOutlineCloseCircle
             className="form-icon"
             onClick={onRequestClose}
@@ -130,38 +115,62 @@ const VideoResumeModal = ({ isOpen, onRequestClose, handleSubmit }) => {
                 </div>
               )}
           </div>
-          {wantComplimentaryCall ? (
-            <div className="calendly-embed">
-              <span className="close-calendly" onClick={handleClose}>
-                <AiOutlineCloseCircle className="form-icon" />
-              </span>
-              <InlineWidget
-                url="https://calendly.com/teammentoons/cxo-branding-resume-writing"
-                className="calendly-embed"
-              />
-            </div>
-          ) : (
-            <div className="form_group">
-              {closeClick ? (
-                ""
-              ) : (
-                <input
-                  name="wantComplimentaryCall"
-                  type="checkbox"
-                  checked={formik.values.wantComplimentaryCall}
-                  onChange={(e) => {
-                    handleCheckboxChange(e);
-                  }}
-                />
-              )}
-
-              <label className="sub_title1" htmlFor="wantComplimentaryCall">
-                {closeClick
-                  ? "Call Scheduled"
-                  : "I want a 10mins complimentary call!"}
-              </label>
-            </div>
-          )}
+          <div className="form_group">
+            <label className="sub_title" htmlFor="email">
+              Email
+            </label>
+            <input
+              placeholder="Enter your email"
+              className="form_style"
+              type="text"
+              id="email"
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.email && formik.errors.email && (
+              <div className="error-message">{formik.errors.email}</div>
+            )}
+          </div>
+          <div className="form_group">
+            <label className="sub_title" htmlFor="phone">
+              Phone
+            </label>
+            <input
+              placeholder="Enter your phone number"
+              className="form_style"
+              type="text"
+              id="phone"
+              name="phone"
+              value={formik.values.phone}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.phone && formik.errors.phone && (
+              <div className="error-message">{formik.errors.phone}</div>
+            )}
+          </div>
+          <div className="form_group">
+            <label className="sub_title" htmlFor="paymentDetails">
+              Payment Details
+            </label>
+            <input
+              placeholder="Enter payment details"
+              className="form_style"
+              type="text"
+              id="paymentDetails"
+              name="paymentDetails"
+              value={formik.values.paymentDetails}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.paymentDetails && formik.errors.paymentDetails && (
+              <div className="error-message">
+                {formik.errors.paymentDetails}
+              </div>
+            )}
+          </div>
           <div className="form_group bottom-right">
             <button className="btn1 submit-button" type="submit">
               SUBMIT
@@ -173,4 +182,4 @@ const VideoResumeModal = ({ isOpen, onRequestClose, handleSubmit }) => {
   );
 };
 
-export default VideoResumeModal;
+export default BasicResumeForm;

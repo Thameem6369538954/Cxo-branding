@@ -4,13 +4,21 @@ import "../css/Jobsearch.css";
 import Headerimg from "../Images/Headerimg.jpg";
 import JobAdviceModal from "./JobAdviceModal"; // Update the path accordingly
 import { useNavigate } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 const Jobsearch = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
+  const token = useSelector((state) => state.userData.token);
+  
   const handleOpenJobform = () => {
-    setModalOpen(true);
+    if (token) {
+      setModalOpen(true);
+    } else {
+      navigate("/login");
+    }
+
+    
   };
 
   const handleCloseModal = () => {
@@ -24,7 +32,7 @@ const Jobsearch = () => {
           Job Search Advice
         </h1>
 
-        <button onClick={handleOpenJobform}>get job advice</button>
+        <button className='button' onClick={handleOpenJobform}>get job advice</button>
       </div>
 
       <div
@@ -33,7 +41,7 @@ const Jobsearch = () => {
         data-aos-anchor-placement="bottom-bottom"
       >
         <div className="image-container">
-          <img src={Headerimg} width={400} alt="" onClick={handleOpenJobform} />
+          <img  src={Headerimg} width={400} alt="" onClick={handleOpenJobform} />
           <p>
             Success often favors those who possess a well-defined career
             strategy and thorough preparation.

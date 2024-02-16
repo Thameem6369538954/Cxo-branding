@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.subscribe-main{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2%;
+}
+.subscribe-box{
+    border: 1px solid var(--black);
+    padding: 60px;
+    border-radius: 10px;
+    height: 85%;
+}
+.subs-list li{
+    list-style: none;
+    padding: 9px;
+    display: flex;
+    
+    justify-content: space-between;
+}
+.subs-list li input{
+    padding: 10px;
+    color: red;
+}
+.profile-heading1 h1{
+ margin-top: 12px;
+ font-size: 60px;
+}
+.profile-heading p{
+    font-size: 16px;
+    padding: 10px;
+}
+.profile-heading h5{
+    font-size: 16px;
+    padding: 10px;
+}
+.pro-btn{
+    background-color: var(--yellow);
+    margin-top: 20px;
+ border: none;
+ padding: 10px;
+}
+@media screen and (max-width:600px) {
+    .subscribe-main{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+       border: var(--black);
+        margin-top: 2%;
+    }
+    .subscribe-box{
+        border: 1px solid var(--black);
+        padding: 40px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px){
+
+}

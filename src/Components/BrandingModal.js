@@ -4,7 +4,8 @@ import Modal from "react-modal";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import axios from "axios";
+import axios from "../Axios/axios";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
@@ -31,8 +32,7 @@ const BrandingModal = ({ isOpen, onRequestClose, handleSubmit }) => {
     const navigate = useNavigate();
     const [wantComplimentaryCall, setWantComplimentaryCall] = useState(false);
     const [closeClick, setCloseClick] = useState(false);
-    // const [file, setFile] = useState(null);
-    // const [selectedPdf, setSelectedPdf] = useState(null);
+     const userId = useSelector((state) => state?.userData?.userData?._id);
    const formik = useFormik({
      initialValues: {
        fullname: "",
@@ -47,8 +47,12 @@ const BrandingModal = ({ isOpen, onRequestClose, handleSubmit }) => {
 
      onSubmit: async (values) => {
        try {
-         // Your form submission logic here
-         // ...
+          const response = await axios.post("/post-logokit", {
+            userId,
+            socialMediaLink: values.socialmedialink,
+            wantComplimentaryCall: values.wantComplimentaryCall,
+          });
+
 
          toast.success("Form submitted successfully!");
          setTimeout(() => {

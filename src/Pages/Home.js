@@ -13,14 +13,15 @@ const Home = () => {
       <Navbar />
       <Header />
       <Resume />
-      <Testimonal />
-      <Jobsearch  />
+
+      <Jobsearch />
       <Personalbranding />
       <Profilemanagement />
+      <Testimonal />
+
       <Footer />
     </div>
-    
-  )
+  );
 }
 
 export default Home

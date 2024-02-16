@@ -5,7 +5,7 @@ const Profilemanagement = () => {
     <div>
         <div className="profile-main" >
             <div className="profile-heading" data-aos-duration="2000" data-aos="zoom-out-right">
-                <h1>Social Profile Management</h1>
+                <h1>View our plans</h1>
                 <h5>Globalize your reach!</h5>
                 <p>Portray your brand on social media outlets. Employers are constantly looking for you on social media</p>
 

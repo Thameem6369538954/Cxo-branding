@@ -7,13 +7,11 @@ import Login from './Pages/Login.js';
 import Resumeform from './Components/Resumeform.js'
 import Cxocofounder from './Pages/Cxocofounder.js'
 import { useSelector } from "react-redux";
+import ResumePrice from './Components/ResumePrice.js'
 
-import JobAdvice from './Components/JobAdviceForm.js';
-import LogokitForm from './Components/LogokitForm.js';
-import VideoResumjeform from './Components/VideoResumjeform.js';
-import WebsiteForm from './Components/WebsiteForm.js';
 function App() {
-const token = useSelector((state) => state.user?.token);
+  const token = useSelector((state) => state.userData?.token);
+  console.log(token,"token in app.js")
   return (
     <div className="App">
       <Router>
@@ -29,17 +27,39 @@ const token = useSelector((state) => state.user?.token);
           />
           <Route
             path="/Resumeform"
-            element={<Resumeform />}
-            // element={token ? <Resumeform /> : <Navigate to="/Login" />}
+            // element={<Resumeform />}
+            element={token ? <Resumeform /> : <Navigate to="/Login" />}
           />
 
-          <Route path="/job-advice" element={<JobAdvice />} />
+          <Route
+            path="/ResumePrice"
+            element={token ? <ResumePrice /> : <Navigate to="/Login" />}
+          />
 
-          <Route path="/logokitForm" element={<LogokitForm />} />
-          <Route path="/videoResumeForm" element={<VideoResumjeform />} />
-          <Route path="WebsiteForm" element={<WebsiteForm />} />
+          {/* <Route
+            path="/job-advice"
+            element={token ? <JobAdvice /> : <Navigate to="/Login" />}
+          />
 
-          <Route path="/Cxocofounder" element={<Cxocofounder />} />
+          <Route
+            path="/logokitForm"
+            element={token ? <LogokitForm /> : <Navigate to="/Login" />}
+          />
+          <Route
+            path="/videoResumeForm"
+            element={token ? <VideoResumjeform /> : <Navigate to="/Login" />}
+            
+          />
+          <Route
+            path="WebsiteForm"
+            element={token ? <WebsiteForm />: <Navigate to="/Login" />}
+            
+          /> */}
+
+          <Route
+            path="/Cxocofounder"
+            element={token ? <Cxocofounder /> : <Navigate to="/Login" />}
+          />
         </Routes>
       </Router>
     </div>

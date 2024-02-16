@@ -1,5 +1,6 @@
 // Personalbranding.js
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import BrandingModal from "./BrandingModal";
 import VideoResumeModal from "./VideoResumeModal"
 import "../css/Personalbranding.css";
@@ -16,13 +17,36 @@ const Personalbranding = () => {
     useState(false);
   const [videoResumeModalOpen, setVideoResumeModalOpen] = useState(false);
 
-  const openLogoIdModal = () => setLogoIdModalOpen(true);
+  const token = useSelector((state) => state.userData.token);
+  const navigate = useNavigate();
+
+  const openLogoIdModal = () => { 
+    if (token) {
+      setLogoIdModalOpen(true);
+    } else {
+      navigate("/login");
+    }
+  }
   const closeLogoIdModal = () => setLogoIdModalOpen(false);
 
-  const openVideoTestimonialModal = () => setVideoTestimonialModalOpen(true);
+  const openVideoTestimonialModal = () => {
+     if (token) {
+       setVideoTestimonialModalOpen(true);
+    }
+     else {
+       navigate("/login");
+    }
+  }
+   
   const closeVideoTestimonialModal = () => setVideoTestimonialModalOpen(false);
 
-  const openVideoResumeModal = () => setVideoResumeModalOpen(true);
+  const openVideoResumeModal = () => {
+    if (token) {
+      setVideoResumeModalOpen(true);
+    } else {
+      navigate("/login");
+    }
+  } 
   const closeVideoResumeModal = () => setVideoResumeModalOpen(false);
 
   const handleOnclick = () => {
