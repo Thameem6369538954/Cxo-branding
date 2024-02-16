@@ -87,15 +87,15 @@
     justify-content: space-around;
   }
   .brand-box-2 {
-    position: absolute;
+       position: absolute;
     height: 220px;
     border: 5px solid black;
     z-index: -1;
     padding: 60px;
-    width: 35%;
+    width: 28%;
     height: 43%;
-    margin-top: -24%;
-    margin-left: -30px;
+    margin-top: -22%;
+    margin-left: -22px;
     border-radius: 10px;
     cursor: pointer;
   }
