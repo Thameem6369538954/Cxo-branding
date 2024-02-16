@@ -5,20 +5,19 @@ import "../css/Signin.css";
 import Lottie from "lottie-react";
 import { useNavigate, Link } from "react-router-dom";
 import Login from "../Animation/Login.json";
-import { GoogleLogin } from "react-google-login";
+// import { GoogleLogin } from "react-google-login";
 import axios from "../Axios/axios.js";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../redux/userReducer";
 
-
 const Signup = () => {
-   const dispatch = useDispatch();
-   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-   const responseGoogle = (response) => {
-     // Handle Google login response
-     console.log(response);
-   };
+  const responseGoogle = (response) => {
+    // Handle Google login response
+    console.log(response);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -48,19 +47,16 @@ const Signup = () => {
     onSubmit: async (values, { setSubmitting, setFieldError }) => {
       try {
         // Your form submission logic here
-        const response = await axios.post(
-          "/signup",
-          values
-        );
-         if (response.data.success) {
-           console.log("Signup successful!");
-           // Redirect or perform other actions on successful signup
+        const response = await axios.post("/signup", values);
+        if (response.data.success) {
+          console.log("Signup successful!");
+          // Redirect or perform other actions on successful signup
           dispatch(setUserDetails(response.data.userData));
-           navigate("/login");
-         } else {
-           // Handle unsuccessful signup (email already exists, etc.)
-           setFieldError("email", "Email already exists");
-         }
+          navigate("/login");
+        } else {
+          // Handle unsuccessful signup (email already exists, etc.)
+          setFieldError("email", "Email already exists");
+        }
         console.log("Form submitted:", values);
         // navigate("/"); // Redirect after successful submission
       } catch (error) {
@@ -173,13 +169,13 @@ const Signup = () => {
 
           {/* Google Login Button */}
           <div className="google-login-btn">
-            <GoogleLogin
+            {/* <GoogleLogin
               clientId="YOUR_GOOGLE_CLIENT_ID"
               buttonText="Signup with Google"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
               cookiePolicy="single_host_origin"
-            />
+            /> */}
           </div>
 
           {/* Additional UI or animation elements can be added here */}

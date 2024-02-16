@@ -2,7 +2,7 @@ import React from 'react'
 import '../css/Login.css'
 import {Link} from 'react-router-dom'
 import Loginpic from '../Images/Loginpic.jpg'
-import { GoogleLogin } from "react-google-login";
+// import { GoogleLogin } from "react-google-login";
 import axios from "../Axios/axios.js";
 import { useNavigate } from "react-router-dom"; 
 import { useFormik } from "formik";
@@ -102,13 +102,13 @@ const Login = () => {
 
         {/* Google Login Button */}
         <div className="google-login-btn">
-          <GoogleLogin
+          {/* <GoogleLogin
             clientId="YOUR_GOOGLE_CLIENT_ID"
             buttonText="Login with Google"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy="single_host_origin"
-          />
+          /> */}
         </div>
 
         <p>
