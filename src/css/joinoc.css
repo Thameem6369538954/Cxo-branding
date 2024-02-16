@@ -1,93 +1,95 @@
-.join-cofounder{
-    background-color: #1e1e2b;
-    width: 100%;
-    height: 100vh;
+.join-cofounder {
+  background-color: #1e1e2b;
+  width: 100%;
+  height: 100vh;
+}
+.co-box-1 img {
+  width: 150px;
+}
+.co-box-2 img {
+  width: 150px;
+}
+.co-box-3 img {
+  width: 150px;
+}
+.join-co-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.co-box-1 {
+  width: 10px;
+  border: 1px solid var(--yellow);
+  padding: 20px;
+  width: 360px;
+  border-radius: 20px;
+}
+.co-box-2 {
+  padding: 20px;
+  width: 360px;
+  border-radius: 20px;
+  border: 1px solid var(--yellow);
+}
+.co-box-3 {
+  width: 10px;
+  border: 1px solid var(--yellow);
+  padding: 20px;
+  width: 360px;
+  border-radius: 20px;
+}
+.cofounder-icons {
+  margin-top: 20px;
+  align-items: center;
+  font-size: 50px;
+  text-align: center;
+  color: white;
+}
+.co-box-1 h1,
+.co-box-2 h1,
+.co-box-3 h1 {
+  padding: 10px;
+  color: white;
+}
+.co-box-1 p,
+.co-box-2 p,
+.co-box-3 p {
+  color: white;
+}
+.cofounder-heading h1 {
+  padding: 20px;
+  color: aliceblue;
+}
+.number-box {
+  margin-top: 33px;
+  margin-left: 10%;
+  background-color: aliceblue;
+  width: 79%;
+  height: 150px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.number-icons {
+  margin-top: 10px;
+  font-size: 20px;
+}
+@media screen and (max-width: 600px) {
+  * {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
   }
-  .co-box-1 img{
-    width: 150px;
-  }
-  .co-box-2 img{
-    width: 150px;
-  }
-  .co-box-3 img{
-    width: 150px;
-  }
-  .join-co-box{
+  .join-co-box {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    gap: 20px;
   }
-  .co-box-1{
-    width: 10px;
-    border: 1px solid var(--yellow) ;
-    padding: 20px;
-    width: 360px;
-    border-radius: 20px;
+  .join-cofounder {
+    background-color: #1e1e2b;
+    width: 100%;
+    height: 220vh;
   }
-  .co-box-2{
-    padding: 20px;
-    width: 360px;
-    border-radius: 20px;
-    border: 1px solid var(--yellow) ;
-  
-  }
-  .co-box-3{
-    width: 10px;
-    border: 1px solid var(--yellow) ;
-    padding: 20px;
-    width: 360px;
-    border-radius: 20px;
-  }
-  .cofounder-icons{
-    margin-top: 20px;
-    align-items: center;
-    font-size: 50px;
-    text-align: center;
-    color: white;
-  }
-  .co-box-1 h1, .co-box-2 h1, .co-box-3 h1{
-    padding: 10px;
-    color: white;
-  }
-  .co-box-1 p, .co-box-2 p, .co-box-3 p{
-    color: white;
-  }
-  .cofounder-heading h1{
-    padding: 20px;
-    color: aliceblue;
-  }
-  .number-box {
-    margin-top: 33px;
-    margin-left: 10%;
-    background-color: aliceblue;
-    width: 79%;
-    height: 150px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .number-icons{
-   margin-top: 10px;
-    font-size: 20px;
-  }
-  @media screen and (max-width:600px) {
-    *{
-      padding: 0%;
-      margin: 0%;
-      box-sizing: border-box;
-      overflow-x: hidden;
-    }
-    .join-co-box{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      gap: 20px;
-    }
-    .join-cofounder{
-      background-color: #1e1e2b;
-      width: 100%;
-      height: 220vh;
-    }
-  }
+}
