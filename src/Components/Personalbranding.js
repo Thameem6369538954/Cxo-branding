@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import BrandingModal from "./BrandingModal";
-import VideoResumeModal from "./VideoResumeModal"
+import VideoResumeModal from "./VideoResumeModal";
 import "../css/Personalbranding.css";
 import Kit from "../Images/Kit.png";
 import vds from "../Images/vds.png";
@@ -20,24 +20,23 @@ const Personalbranding = () => {
   const token = useSelector((state) => state.userData.token);
   const navigate = useNavigate();
 
-  const openLogoIdModal = () => { 
+  const openLogoIdModal = () => {
     if (token) {
       setLogoIdModalOpen(true);
     } else {
       navigate("/login");
     }
-  }
+  };
   const closeLogoIdModal = () => setLogoIdModalOpen(false);
 
   const openVideoTestimonialModal = () => {
-     if (token) {
-       setVideoTestimonialModalOpen(true);
+    if (token) {
+      setVideoTestimonialModalOpen(true);
+    } else {
+      navigate("/login");
     }
-     else {
-       navigate("/login");
-    }
-  }
-   
+  };
+
   const closeVideoTestimonialModal = () => setVideoTestimonialModalOpen(false);
 
   const openVideoResumeModal = () => {
@@ -46,7 +45,7 @@ const Personalbranding = () => {
     } else {
       navigate("/login");
     }
-  } 
+  };
   const closeVideoResumeModal = () => setVideoResumeModalOpen(false);
 
   const handleOnclick = () => {
@@ -65,8 +64,9 @@ const Personalbranding = () => {
     <div>
       <div
         className="branding-heading"
-        data-aos="fade-up"
-        data-aos-anchor-placement="bottom-center"
+        data-aos="zoom-out-right"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
         id="branding"
       >
         <h1>Personal Branding Solutions</h1>
@@ -78,7 +78,12 @@ const Personalbranding = () => {
       </div>
 
       <div className="main-branding">
-        <div className="main-box" data-aos="zoom-out-right">
+        <div
+          className="main-box"
+          data-aos="zoom-out-right"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
           <div className="brand-box-container">
             <div className="brand-box-1" onClick={handleOnclick}>
               <img src={Kit} alt="" width={200} />

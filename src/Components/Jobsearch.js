@@ -10,15 +10,13 @@ const Jobsearch = () => {
   const navigate = useNavigate();
 
   const token = useSelector((state) => state.userData.token);
-  
+
   const handleOpenJobform = () => {
     if (token) {
       setModalOpen(true);
     } else {
       navigate("/login");
     }
-
-    
   };
 
   const handleCloseModal = () => {
@@ -32,16 +30,19 @@ const Jobsearch = () => {
           Job Search Advice
         </h1>
 
-        <button className='button' onClick={handleOpenJobform}>get job advice</button>
+        <button className="button" onClick={handleOpenJobform}>
+          get job advice
+        </button>
       </div>
 
       <div
         className="job-box"
-        data-aos="fade-up"
-        data-aos-anchor-placement="bottom-bottom"
+        data-aos="zoom-in"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
       >
         <div className="image-container">
-          <img  src={Headerimg} width={400} alt="" onClick={handleOpenJobform} />
+          <img src={Headerimg} width={400} alt="" onClick={handleOpenJobform} />
           <p>
             Success often favors those who possess a well-defined career
             strategy and thorough preparation.
