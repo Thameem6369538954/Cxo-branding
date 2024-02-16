@@ -1,60 +1,94 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.carosel{
-    padding: 10px;
+.carosel {
+  padding: 10px;
 }
-.main-testimonal{
-    background-color: hsl(0, 0%, 96%);
+.main-testimonal {
+  background-color: hsl(0, 0%, 96%);
 }
-.bottom-p{
-    font-family: 'Poppins', sans-serif;
-    margin-top: 50px;
-    font-size: 26px;
+.bottom-p {
+  font-family: "Poppins", sans-serif;
+  margin: auto;
+  font-size: 26px;
 }
 .main-testimonal h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 60px;
+  font-family: "Poppins", sans-serif;
+  font-size: 60px;
 }
-.caro-box-1,.caro-box-2,.caro-box-3,.caro-box-4,.caro-box-5,.caro-box-6,
-.caro-box-7,.caro-box-8,.caro-box-9{
-    margin-top: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.caro-box-1,
+.caro-box-2,
+.caro-box-3,
+.caro-box-4,
+.caro-box-5,
+.caro-box-6,
+.caro-box-7,
+.caro-box-8,
+.caro-box-9 {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid black;
   border-radius: 10px;
-   gap: 1rem;
+  gap: 1rem;
+  width: 80%;
 }
-.main-testimonal p{
-    margin-top: 20px;
-    font-family: 'Poppins', sans-serif;
+.main-testimonal p {
+  font-family: "Poppins", sans-serif;
 }
-.caro-box-1 p,.caro-box-2 p,.caro-box-3 p,.caro-box-4 p,.caro-box-5 p,.caro-box-6 p,
-.caro-box-7 p,.caro-box-8 p,.caro-box-9 p{
-    font-family: 'Poppins', sans-serif;
-    padding: 10px;
-    font-size: 14px;
+.caro-box-1 p,
+.caro-box-2 p,
+.caro-box-3 p,
+.caro-box-4 p,
+.caro-box-5 p,
+.caro-box-6 p,
+.caro-box-7 p,
+.caro-box-8 p,
+.caro-box-9 p {
+  font-family: "Poppins", sans-serif;
+  /* padding: 10px; */
+  font-size: 14px;
 }
-.caro-box-1 img,.caro-box-2 img,.caro-box-3 img,.caro-box-4 img,.caro-box-5 img,.caro-box-6 img,
-.caro-box-7 img,.caro-box-8 img,.caro-box-9 img{
-    width: 200px;
-    
+.caro-box-1 img,
+.caro-box-2 img,
+.caro-box-3 img,
+.caro-box-4 img,
+.caro-box-5 img,
+.caro-box-6 img,
+.caro-box-7 img,
+.caro-box-8 img,
+.caro-box-9 img {
+  width: 200px;
 }
-@media screen and (max-width:600) {
-   
-    .caro-box-1 p,.caro-box-2 p,.caro-box-3 p,.caro-box-4 p,.caro-box-5 p,.caro-box-6 p,
-.caro-box-7 p,.caro-box-8 p,.caro-box-9 p{
-    font-family: 'Poppins', sans-serif;
+@media screen and (max-width: 600) {
+  .caro-box-1 p,
+  .caro-box-2 p,
+  .caro-box-3 p,
+  .caro-box-4 p,
+  .caro-box-5 p,
+  .caro-box-6 p,
+  .caro-box-7 p,
+  .caro-box-8 p,
+  .caro-box-9 p {
+    font-family: "Poppins", sans-serif;
     padding: 10px;
     font-size: 12px;
-}
-.caro-box-1 img,.caro-box-2 img,.caro-box-3 img,.caro-box-4 img,.caro-box-5 img,.caro-box-6 img,
-.caro-box-7 img,.caro-box-8 img,.caro-box-9 img{
-    width: 400px;
-    
-}
+    width: 30%;
+    height: 30%;
+  }
+  .caro-box-1 img,
+  .caro-box-2 img,
+  .caro-box-3 img,
+  .caro-box-4 img,
+  .caro-box-5 img,
+  .caro-box-6 img,
+  .caro-box-7 img,
+  .caro-box-8 img,
+  .caro-box-9 img {
+    width: 250px;
+  }
 }
