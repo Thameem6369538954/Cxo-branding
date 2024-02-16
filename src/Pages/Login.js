@@ -16,10 +16,10 @@ const Login = () => {
    const navigate = useNavigate();
    const dispatch = useDispatch();
 
-   const responseGoogle = (response) => {
-     // Handle Google login response
-     console.log(response);
-   };
+  //  const responseGoogle = (response) => {
+  //    // Handle Google login response
+  //    console.log(response);
+  //  };
 
    const formik = useFormik({
      initialValues: {

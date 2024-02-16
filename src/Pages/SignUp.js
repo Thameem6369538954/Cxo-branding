@@ -14,10 +14,10 @@ const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const responseGoogle = (response) => {
-    // Handle Google login response
-    console.log(response);
-  };
+  // const responseGoogle = (response) => {
+  //   // Handle Google login response
+  //   console.log(response);
+  // };
 
   const formik = useFormik({
     initialValues: {
